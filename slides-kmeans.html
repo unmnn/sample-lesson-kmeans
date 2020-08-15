@@ -32,6 +32,28 @@ Today, unsupervised learning.
 
 ---
 
+name: learner-persona
+
+## Learner Persona 
+
+(**Course:** "Introduction to Data Mining with R")
+
+.font130[_Meet Nathalie..._]
+
+**1. Background:** Nathalie is a 22-year-old undergraduate student pursuing a Bachelor's degree in "Operations Research and Business Analytics". 
+She is born in Turkey, and moved to Germany to take up her study. 
+
+**2. Relevant Experience:** Currently, Nathalie is in her 5th semester. 
+Until now, she has been analyzing data mainly with Excel, and has some working knowledge of SPSS, but she has never programmed in R prior to taking this course. 
+
+**3. Needs:** Nathalie is enrolled in this course which is required for her degree, so she needs to pass it. 
+However, she is also interested in this course because she knows that showing R proficiency on her CV will increase her value on the job market. 
+She needs a gentle introduction to R, also focusing on differences between the tools she currently uses and a programming language (_What are loops?, What is a function?, ..._).
+
+**4. Special considerations:** Nathalie has little experience in programming and she doesn't have a very powerful laptop.
+
+---
+
 ## Recap: Supervised Learning
 
 **General idea**: train a model which estimates the value of the response based on the values of the predictors. 
@@ -82,10 +104,11 @@ The company can fit their ads to the characteristics and preferences of each res
 For example, ads for vegan products might work better in bigger cities in comparison to rural areas and focus their marketing budget to this cutomer subgroup.
 
 Another example: diseases like breast cancer comprise several subtypes.
-Gene expression measurements are used to find such phenotypes.
+Gene expression measurements can be used to identify such phenotypes.
 
-Or a company that runs a webshop might want to discover typical usage patterns on their website.
-They could use this information to improve UI and thus, increase conversion rate.
+Or a company that runs a webshop might want to discover typical usage patterns on their website. 
+Maybe they identify 2 distinct types of webshop users. 
+They could use insights on this analysis to improve UI, maybe provide user-type personalized offers and thus, increase conversion rate.
 
 --
 
@@ -118,9 +141,9 @@ Clustering refers to a set of methods to find homogeneous subgroups in a dataset
 
 A good clustering result groups similar objects into the same cluster and dissimilar objects into different clusters.
 
-Of course, to quantify what is similar we need a similarity or distance measure.
+To determine which objects are similar and which are not similar, we need a similarity or distance measure.
 
-which often incorportates domain-specific considerations
+//which often incorportates domain-specific considerations
 
 ---
 
@@ -163,7 +186,7 @@ K-Means is probably the most popular clustering algorithm.
 
 The general idea is to partition the observations of our dataset into a pre-specified number of subgroups, the clusters. 
 
-Each cluster is represented by a so called centroid, which is the cluster center, or the mean vector of the observations assigned to a cluster.
+Each cluster is represented by a so called centroid, which is the average of the coordinates of the observations assigned to the cluster.
 
 Now we want to find a set of clusters such that our objective function, the sum of intra-cluster variation, is minimal.
 
@@ -185,12 +208,12 @@ The intra-cluster variation is the sum of squared distances between the observat
 
 ???
 
-The algorithm contains three main steps.
+The algorithm consists of three main steps.
 
 First, we select K initial centroids. 
 Usually, we take the coordinates of randomly drawn observations.
 
-Then, we iteratively run the 2. and 3. step until the cluster assignements do not change anymore.
+Then, we iteratively run the 2. and 3. step until the cluster assignments do not change anymore.
 
 We assign each observations to the closest centroid and recompute the positions of every centroid.
 
@@ -212,7 +235,7 @@ class: middle
 
 ???
 
-As an example, we apply K-Means with 3 clusters to this dataset. 
+As an example, we apply K-Means with 3 clusters to this 2d dataset. 
 
 ---
 
@@ -394,6 +417,7 @@ select the result which yields minimum total intra-cluster variation.
 ---
 
 class: exercise-blue
+name: formative-assessment-1
 
 ## Your Turn
 
@@ -404,7 +428,7 @@ class: exercise-blue
 ???
 
 A: Centroid of a cluster is the mean of all points in the cluster. It is not the correct result, because the red diamond is outside of the cluster.\
-B: K=3
+B: K=3\
 C: Correct.
 
 // In K-means clustering, a centroid is the prototype of a cluster, i.e., the average (mean) of all the points in the cluster.
@@ -416,8 +440,8 @@ Which of the following plots shows the correct centroid positions after converge
 
 The `kmeans()` function takes two mandatory arguments: 
 
-- `x`: the data (data frame or numeric matrix)
-- `centers`: number of clusters K or a set of initial centroids
+* `x`: the data (data frame or numeric matrix)
+* `centers`: number of clusters K or a set of initial centroids
 
 
 ???
@@ -434,7 +458,7 @@ The kmeans() function has two mandatory arguments: x: the data itself as matrix 
 
 
 ```r
-# devtools::install_github("allisonhorst/palmerpenguins")
+# remotes::install_github("allisonhorst/palmerpenguins")
 (df &lt;- palmerpenguins::penguins %&gt;% 
   select(bill_length_mm, bill_depth_mm) %&gt;% 
   drop_na())
@@ -642,20 +666,25 @@ str(clustering)
 ---
 
 class: exercise-blue
+name: formative-assessment-2
 
-## Your Turn
+## Your Turn (exercise.R)
 
 #### Run K-means clustering on the Palmer penguins data with K=3. 
-#### Instead of a random centroid initialization, provide custom coordinates for the initial centroids. 
-#### Return the cluster sizes.
+#### Instead of initializing the centroids randomly, use to provided custom coordinates. 
+#### Return the number of observations for each cluster.
 
 
 ```r
-# devtools::install_github("allisonhorst/palmerpenguins")
+# remotes::install_github("allisonhorst/palmerpenguins")
 library(dplyr)
+library(tidyr)
+library(palmerpenguins)
 
 # Prepare 2-dimensional data for clustering
-df &lt;- palmerpenguins::penguins %&gt;% select(bill_length_mm, bill_depth_mm) %&gt;% drop_na()
+df &lt;- penguins %&gt;% 
+  select(bill_length_mm, bill_depth_mm) %&gt;% 
+  drop_na()
 
 # Run K-means clustering using custom initial centroids
 clustering &lt;- kmeans(_____, 
@@ -676,25 +705,15 @@ clustering$_____
 - centers
 - size
 
-faded example vs. Parson's problem
+**faded example** vs. Parson's problem
 
 ---
 
+name: concept-map
+
 ## Concept Map
 
-&lt;img src="images/concept-map.png" style="display: block; margin: auto;" /&gt;
-
-???
-
-
-TODO: learner persona
-
-http://www.science.smith.edu/~jcrouser/SDS293/
-http://www.science.smith.edu/~jcrouser/SDS293/lectures/22-clustering.pdf
-
-
-https://stackoverflow.com/questions/8446218/how-to-see-an-html-page-on-github-as-a-normal-rendered-html-page-to-see-preview
-https://docs.google.com/document/d/1OzPD2wpgPBRuUQ3sCFFT6UV9AuehfiEMPX1CP-ZJ8Hg/edit#heading=h.bly9yafeptgp
+&lt;img src="images/concept-map.png" width="100%" style="display: block; margin: auto;" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
