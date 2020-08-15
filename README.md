@@ -2,12 +2,14 @@ Sample lesson for the teaching exam of the [RStudio instructor certification](ht
 
 This lesson on "K-Means Clustering in R" is meant to be a part of the (fictional) undergraduate course "Data Mining with R". 
 
-View rendered slides (html) at <https://unmnn.github.io/sample-lesson-kmeans/slides-kmeans.html>
+## Content
 
-* [Learner persona](https://unmnn.github.io/sample-lesson-kmeans/slides-kmeans.html#learner-persona)
-* [Concept map](https://unmnn.github.io/sample-lesson-kmeans/slides-kmeans.html#concept-map)
-* [Formative assessment 1](https://unmnn.github.io/sample-lesson-kmeans/slides-kmeans.html#formative-assessment-1)
-* [Formative assessment 2](https://unmnn.github.io/sample-lesson-kmeans/slides-kmeans.html#formative-assessment-2)
+* [Slides (html)](slides-kmeans.html)
+* [Slides (pdf)](slides-kmeans.pdf)
+* [Learner persona](slides-kmeans.html#learner-persona)
+* [Concept map](slides-kmeans.html#concept-map)
+* [Formative assessment 1](slides-kmeans.html#formative-assessment-1)
+* [Formative assessment 2](slides-kmeans.html#formative-assessment-2)
 
 ---
 
