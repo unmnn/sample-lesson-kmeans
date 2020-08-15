@@ -4,12 +4,12 @@ This lesson on "K-Means Clustering in R" is meant to be a part of the (fictional
 
 ## Content
 
-* [Slides (html)](slides-kmeans.html)
+* [Slides (html)](https://unmnn.github.io/sample-lesson-kmeans/slides-kmeans.html)
 * [Slides (pdf)](slides-kmeans.pdf)
-* [Learner persona](slides-kmeans.html#learner-persona)
-* [Concept map](slides-kmeans.html#concept-map)
-* [Formative assessment 1](slides-kmeans.html#formative-assessment-1)
-* [Formative assessment 2](slides-kmeans.html#formative-assessment-2)
+* [Learner persona](https://unmnn.github.io/sample-lesson-kmeans/slides-kmeans.html#learner-persona)
+* [Concept map](https://unmnn.github.io/sample-lesson-kmeans/slides-kmeans.html#concept-map)
+* [Formative assessment 1](https://unmnn.github.io/sample-lesson-kmeans/slides-kmeans.html#formative-assessment-1)
+* [Formative assessment 2](https://unmnn.github.io/sample-lesson-kmeans/slides-kmeans.html#formative-assessment-2)
 
 ---
 
