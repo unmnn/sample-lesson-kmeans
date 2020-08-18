@@ -1,10 +1,9 @@
 # Your Turn
 
 # Run K-means clustering on the Palmer penguins data with K=3. 
-# Instead of initializing the centroids randomly, use to provided custom coordinates. 
+# Instead of initializing the centroids randomly, use the provided custom coordinates. 
 # Return the number of observations for each cluster.
 
-# remotes::install_github("allisonhorst/palmerpenguins")
 library(dplyr)
 library(tidyr)
 library(palmerpenguins)

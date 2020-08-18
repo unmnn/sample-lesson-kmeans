@@ -4,6 +4,7 @@
     <title>K-Means Clustering in R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Uli Niemann" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets\css\my-theme.css" type="text/css" />
     <link rel="stylesheet" href="assets\css\my-fonts.css" type="text/css" />
@@ -24,33 +25,13 @@ class: title-slide, center, bottom
 
 ### 2020/08/21
 
+#### [https://github.com/unmnn/sample-lesson-kmeans/](https://github.com/unmnn/sample-lesson-kmeans/)
+
 .courtesy[&amp;#x1F4F7; Photo courtesy of Ulrich Arendt]
 
 ???
 
 Today, unsupervised learning.
-
----
-
-name: learner-persona
-
-## Learner Persona 
-
-(**Course:** "Introduction to Data Mining with R")
-
-.font130[_Meet Nathalie..._]
-
-**1. Background:** Nathalie is a 22-year-old undergraduate student pursuing a Bachelor's degree in "Operations Research and Business Analytics". 
-She is born in Turkey, and moved to Germany to take up her study. 
-
-**2. Relevant Experience:** Currently, Nathalie is in her 5th semester. 
-Until now, she has been analyzing data mainly with Excel, and has some working knowledge of SPSS, but she has never programmed in R prior to taking this course. 
-
-**3. Needs:** Nathalie is enrolled in this course which is required for her degree, so she needs to pass it. 
-However, she is also interested in this course because she knows that showing R proficiency on her CV will increase her value on the job market. 
-She needs a gentle introduction to R, also focusing on differences between the tools she currently uses and a programming language (_What are loops?, What is a function?, ..._).
-
-**4. Special considerations:** Nathalie has little experience in programming and she doesn't have a very powerful laptop.
 
 ---
 
@@ -460,7 +441,7 @@ The kmeans() function has two mandatory arguments: x: the data itself as matrix 
 
 
 ```r
-# remotes::install_github("allisonhorst/palmerpenguins")
+library(tidyverse)
 (df &lt;- palmerpenguins::penguins %&gt;% 
   select(bill_length_mm, bill_depth_mm) %&gt;% 
   drop_na())
@@ -672,11 +653,10 @@ name: formative-assessment-2
 
 ## Your Turn (exercise.R)
 
-#### Run K-means clustering on the Palmer penguins data with K=3.&lt;br&gt; Instead of initializing the centroids randomly, use to provided custom coordinates. &lt;br&gt;Return the number of observations for each cluster.
+#### Run K-means clustering on the Palmer penguins data with K=3.&lt;br&gt; Instead of initializing the centroids randomly, use the provided custom coordinates. &lt;br&gt;Return the number of observations for each cluster.
 
 
 ```r
-# remotes::install_github("allisonhorst/palmerpenguins")
 library(dplyr)
 library(tidyr)
 library(palmerpenguins)
@@ -706,6 +686,55 @@ clustering$_____
 - size
 
 **faded example** vs. Parson's problem
+
+---
+
+name: learner-persona
+
+## Learner Persona&amp;ast; 
+
+&lt;!-- (**Course:** "Introduction to Data Mining with R") --&gt;
+
+.footnote[
+
+&amp;ast; This lesson on "K-Means Clustering in R" is meant to be a part of the (fictional) undergraduate course "Data Mining with R".
+
+]
+
+.pull-left70[
+
+.font120[_Meet Nathalie..._]
+
+**1. Background:** Nathalie is a 22-year-old undergraduate student pursuing a Bachelor's degree in "Operations Research and Business Analytics". 
+She is born in Turkey, and moved to Germany to take up her study. 
+
+**2. Relevant Experience:** Currently, Nathalie is in her 5th semester. 
+Until now, she has been analyzing data mainly with Excel, and has some working knowledge of SPSS, but she has never programmed in R prior to taking this course. This is also her first course on data science.
+
+**3. Needs:** 
+Nathalie is enrolled in this course which is required for her degree, so she needs to pass it.
+However, she is also interested in this course because she knows that showing data science and R proficiency on her CV will increase her value on the job market.
+She needs a gentle introduction to these topics which doesn't require familiarity with R. 
+&lt;!-- focusing on differences between the tools she currently uses and a "real" programming language (_What are loops?, What is a function?, ..._). --&gt;
+
+**4. Special considerations:** Nathalie has little experience in programming and she doesn't have a very powerful laptop.
+
+]
+
+.pull-right30[
+
+&lt;img src="images/woman-studying.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+
+.font80[
+
+Photo: [Andrew Neel](https://unsplash.com/photos/ute2XAFQU2I)
+
+]
+]
+
+???
+
+Explain in _Their Terms_: This is a course that introduces you to the foundations of data science. We will learn the most important data science methods and we will apply them in small case studies using the R programming language. 
 
 ---
 

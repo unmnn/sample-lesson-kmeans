@@ -13,6 +13,8 @@ output:
       highlightLines: true
       countIncrementalSlides: true
       ratio: "16:9"
+params:
+  url: "https://github.com/unmnn/sample-lesson-kmeans/"
 ---
 
 ```{r setup, include=FALSE}
@@ -66,33 +68,13 @@ class: title-slide, center, bottom
 
 ### `r rmarkdown::metadata$date`
 
+#### [`r params$url`](`r params$url`)
+
 .courtesy[&#x1F4F7; Photo courtesy of Ulrich Arendt]
 
 ???
 
 Today, unsupervised learning.
-
----
-
-name: learner-persona
-
-## Learner Persona 
-
-(**Course:** "Introduction to Data Mining with R")
-
-.font130[_Meet Nathalie..._]
-
-**1. Background:** Nathalie is a 22-year-old undergraduate student pursuing a Bachelor's degree in "Operations Research and Business Analytics". 
-She is born in Turkey, and moved to Germany to take up her study. 
-
-**2. Relevant Experience:** Currently, Nathalie is in her 5th semester. 
-Until now, she has been analyzing data mainly with Excel, and has some working knowledge of SPSS, but she has never programmed in R prior to taking this course. 
-
-**3. Needs:** Nathalie is enrolled in this course which is required for her degree, so she needs to pass it. 
-However, she is also interested in this course because she knows that showing R proficiency on her CV will increase her value on the job market. 
-She needs a gentle introduction to R, also focusing on differences between the tools she currently uses and a programming language (_What are loops?, What is a function?, ..._).
-
-**4. Special considerations:** Nathalie has little experience in programming and she doesn't have a very powerful laptop.
 
 ---
 
@@ -710,7 +692,7 @@ The kmeans() function has two mandatory arguments: x: the data itself as matrix 
 #### Example: Clustering Palmer Penguins Bill Sizes
 
 ```{r palmer-data}
-# remotes::install_github("allisonhorst/palmerpenguins")
+library(tidyverse)
 (df <- palmerpenguins::penguins %>% 
   select(bill_length_mm, bill_depth_mm) %>% 
   drop_na())
@@ -825,10 +807,9 @@ name: formative-assessment-2
 
 ## Your Turn (exercise.R)
 
-#### Run K-means clustering on the Palmer penguins data with K=3.<br> Instead of initializing the centroids randomly, use to provided custom coordinates. <br>Return the number of observations for each cluster.
+#### Run K-means clustering on the Palmer penguins data with K=3.<br> Instead of initializing the centroids randomly, use the provided custom coordinates. <br>Return the number of observations for each cluster.
 
 ```{r yt-2, eval = FALSE}
-# remotes::install_github("allisonhorst/palmerpenguins")
 library(dplyr)
 library(tidyr)
 library(palmerpenguins)
@@ -858,6 +839,57 @@ clustering$_____
 - size
 
 **faded example** vs. Parson's problem
+
+---
+
+name: learner-persona
+
+## Learner Persona&ast; 
+
+<!-- (**Course:** "Introduction to Data Mining with R") -->
+
+.footnote[
+
+&ast; This lesson on "K-Means Clustering in R" is meant to be a part of the (fictional) undergraduate course "Data Mining with R".
+
+]
+
+.pull-left70[
+
+.font120[_Meet Nathalie..._]
+
+**1. Background:** Nathalie is a 22-year-old undergraduate student pursuing a Bachelor's degree in "Operations Research and Business Analytics". 
+She is born in Turkey, and moved to Germany to take up her study. 
+
+**2. Relevant Experience:** Currently, Nathalie is in her 5th semester. 
+Until now, she has been analyzing data mainly with Excel, and has some working knowledge of SPSS, but she has never programmed in R prior to taking this course. This is also her first course on data science.
+
+**3. Needs:** 
+Nathalie is enrolled in this course which is required for her degree, so she needs to pass it.
+However, she is also interested in this course because she knows that showing data science and R proficiency on her CV will increase her value on the job market.
+She needs a gentle introduction to these topics which doesn't require familiarity with R. 
+<!-- focusing on differences between the tools she currently uses and a "real" programming language (_What are loops?, What is a function?, ..._). -->
+
+**4. Special considerations:** Nathalie has little experience in programming and she doesn't have a very powerful laptop.
+
+]
+
+.pull-right30[
+
+```{r learner-persona, echo = FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("images/woman-studying.jpg")
+```
+
+.font80[
+
+Photo: [Andrew Neel](https://unsplash.com/photos/ute2XAFQU2I)
+
+]
+]
+
+???
+
+Explain in _Their Terms_: This is a course that introduces you to the foundations of data science. We will learn the most important data science methods and we will apply them in small case studies using the R programming language. 
 
 ---
 
