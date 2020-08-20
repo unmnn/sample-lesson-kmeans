@@ -74,7 +74,7 @@ class: title-slide, center, bottom
 
 ???
 
-Today, unsupervised learning.
+Today, we will learn about unsupervised learning.
 
 ---
 
@@ -110,13 +110,13 @@ ames %>%
 
 ???
 
-As a quick recap, so far, we have exclusively discussed supervised models.
+As a quick recap, so far in this course, we have exclusively discussed supervised models.
 
 The general idea of supervised learning is to train a function f which estimates the value of the response Y based on the values of the predictors X.
 
 An example is predicting the sale price of a house based on the size of its living area.
 Here, house price is the response, living area is the sole predictor and the blue regression line is our model. 
-//Usually, we have more than just 1 predictor.
+Usually, we have more than just 1 predictor, e.g., number of rooms or crime rate of the town.
 
 To create this regression line or any supervised model, we need observations for which we know the true value of the response. 
 Once the model is trained, we can use it to predict the response values for observation for which we don't know the true value of the response. 
@@ -129,15 +129,13 @@ For example, the red dashed lines represent the so called residuals, the differe
 
 **Goal**: look for interesting patterns in the data without having a response
 
-```{r clustering-examples, echo = FALSE, out.width="95%", fig.align='center'}
+```{r clustering-examples, echo = FALSE, out.width="90%", fig.align='center'}
 knitr::include_graphics("images/clustering-examples.png")
 ```
 
 .footnote[Photos: left: [Lucrezia Carnelos](https://unsplash.com/photos/wQ9VuP_Njr4); center: [National Cancer Institute](https://unsplash.com/photos/sIqWYiNLiJU); right: [Agence Olloweb](https://unsplash.com/photos/qfp4-Ud6Fyg)]
 
 ???
-
-Q: Do you know what unsupervised learning is?
 
 Now, for many tasks, we don't have a response, but we are still interested in finding patterns or structure in the data.
 
@@ -146,10 +144,9 @@ This scenario is known as unsupervised learning.
 A company might want to increase the response rate of their marketing campaigns. 
 They are interested in finding customer subgroups with similar demographics and preferences. 
 The company can fit their ads to the characteristics and preferences of each respective subgroup. 
-For example, ads for vegan products might work better in bigger cities in comparison to rural areas and focus their marketing budget to this cutomer subgroup.
+For example, ads for vegan products might work better in bigger cities in comparison to rural areas and focus their marketing budget to this customer subgroup.
 
-Another example: diseases like breast cancer comprise several subtypes.
-Gene expression measurements can be used to identify such phenotypes.
+Another example would be finding subtypes/phenotypes of disease like breast cancer, e.g. using gene expression measurements.
 
 Or a company that runs a webshop might want to discover typical usage patterns on their website. 
 Maybe they identify 2 distinct types of webshop users. 
@@ -187,8 +184,6 @@ Clustering refers to a set of methods to find homogeneous subgroups in a dataset
 A good clustering result groups similar objects into the same cluster and dissimilar objects into different clusters.
 
 To determine which objects are similar and which are not similar, we need a similarity or distance measure.
-
-//which often incorportates domain-specific considerations
 
 ---
 
@@ -267,17 +262,17 @@ ggplot(df_norm, aes(V1, V2, group = cluster, color = cluster)) +
 
 ???
 
-K-Means is probably the most popular clustering algorithm.
+K-Means is probably the most popular clustering algorithm, this is why we learn it first.
 
 The general idea is to partition the observations of our dataset into a pre-specified number of subgroups, the clusters. 
 
 Each cluster is represented by a so called centroid, which is the average of the coordinates of the observations assigned to the cluster.
 
-Now we want to find a set of clusters such that our objective function, the sum of intra-cluster variation, is minimal.
+Now we want to find a set of clusters such that our objective function, the total intra-cluster variation W, is minimal.
 
 What is intra-cluster variation?
 
-The intra-cluster variation is the sum of squared distances between the observations of the cluster and the centroid.
+The intra-cluster variation of a cluster is the sum of squared distances between the observations in the cluster and their centroid.
 
 ---
 
@@ -292,12 +287,12 @@ The intra-cluster variation is the sum of squared distances between the observat
 
 ???
 
-The algorithm consists of three main steps.
+Okay, but how does the algorithm actually work? 
 
 First, we select K initial centroids. 
-Usually, we take the coordinates of randomly drawn observations.
+Usually, we take the coordinates of randomly drawn observations from our data.
 
-Then, we iteratively run the 2. and 3. step until the cluster assignments do not change anymore.
+Then, we run this iterative step until the cluster assignments do not change anymore.
 
 We assign each observations to the closest centroid and recompute the positions of every centroid.
 
@@ -321,7 +316,7 @@ ggplot(df_norm, aes(x = V1, y = V2)) +
 
 ???
 
-As an example, we apply K-Means with 3 clusters to this 2d dataset. 
+As a practical example, let's apply K-Means with 3 clusters to this 2d dataset. 
 
 ---
 
@@ -353,7 +348,7 @@ ggplot(df_norm, aes(x = V1, y = V2)) +
 
 ???
 
-First, we use 3 randomly drawn observations as inital centroids (diamonds).
+First, we pick 3 random observations from the data as our inital centroids (diamonds).
 
 ---
 
@@ -426,6 +421,7 @@ ggplot(df_norm, aes(x = V1, y = V2, color = cluster, fill = cluster)) +
 
 Now, we recompute the positions of each centroid.
 The centroid is the mean vector over all observations assigned to the cluster.
+The black diamond here is the old position of the centroid.
 
 ---
 
@@ -441,7 +437,7 @@ class: middle
 ???
 
 We repeat the cluster assignment step. 
-Since some of the observations from the purple cluster now belong to the orange cluster, we again have to recompute the centroid positions. 
+Since some of the observations previously assigned to the purple cluster now belong to the orange cluster, we again have to recompute the centroid positions. 
 
 
 ---
@@ -457,7 +453,7 @@ class: middle
 
 ???
 
-We repeat this process until convergence.
+We repeat this process until the cluster memberships do not change anymore. 
 
 ---
 
@@ -469,6 +465,10 @@ class: middle
 ```{r ref.label="ex-3", echo=FALSE, fig.width=16/2.54, fig.height=16/2.54, fig.align='center', cache=FALSE}
 
 ```
+
+???
+
+We do not stop here because the assignments have slightly changed.
 
 ---
 
@@ -498,7 +498,7 @@ class: middle
 
 ???
 
-This is our final result.
+This is our final result after 3 iterations.
 
 ---
 
@@ -662,8 +662,8 @@ p1 + p2 + p3 #&
 
 ???
 
-A: Centroid of a cluster is the mean of all points in the cluster. It is not the correct result, because the red diamond is outside of the cluster.\
-B: K=3\
+A: Centroid of a cluster is the mean of all points in the cluster. It is not the correct result, because the red diamond is outside of the cluster.  
+B: K=3  
 C: Correct.
 
 // In K-means clustering, a centroid is the prototype of a cluster, i.e., the average (mean) of all the points in the cluster.
@@ -681,9 +681,14 @@ The `kmeans()` function takes two mandatory arguments:
 
 ???
 
-The K-means algorithm is implemented in the `stats` package which is automatically attached to your `R` session. 
+Now, let's find out how to use K-means in R.
 
-The kmeans() function has two mandatory arguments: x: the data itself as matrix or data frame, and centers, either the number of clusters or custom coordinates of the initial centroids
+The algorithm is implemented in the `stats` package which is automatically attached to your `R` session, so we don't need to load any additional libraries. 
+
+The kmeans() function has two mandatory arguments: 
+
+- x: the data itself as matrix or data frame, and 
+- centers, either the number of clusters or custom coordinates of the initial centroids
 
 --
 
@@ -715,7 +720,7 @@ ggplot(df, aes(bill_length_mm, bill_depth_mm)) +
 
 Here, we apply K-Means on the Palmer penguins data to find subgroups of penguins based on the length and depth of their bills.
 
-We select the two relevant variables and filter out incomplete rows.
+First, we select the two relevant variables and filter out incomplete rows.
 
 ---
 
@@ -734,7 +739,7 @@ set.seed(123)
 
 returns object of class "kmeans"
 
-printing the object gives us useful diagnostics:
+The print methods gives us already very useful diagnostics:
 
 - size of the clusters
 - centroid positions
@@ -750,6 +755,14 @@ printing the object gives us useful diagnostics:
 ```{r palmer-clustering-str}
 str(clustering)
 ```
+
+???
+
+We can use the `str()` function to see which components of the kmeans object are available:
+
+- some sort of list with 9 elements
+
+next slide
 
 ---
 
@@ -779,7 +792,7 @@ df %>%
 
 .pull-right40[
 
-```{r ref.label="palmer-clustering-plot", echo = FALSE, fig.width=13/2.54, fig.height=12/2.54}
+```{r ref.label="palmer-clustering-plot", echo = FALSE, fig.width=13/2.54, fig.height=11/2.54}
 ```
 
 ]
