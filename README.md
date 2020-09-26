@@ -15,4 +15,4 @@ This lesson on "K-Means Clustering in R" is meant to be a part of the (fictional
 
 See instructions at <https://education.rstudio.com/blog/2020/02/instructor-certification-exams/>.
 
-See slides from the training at <https://drive.google.com/drive/folders/13ohFt3D0EJ5PDbMaWTxnHH-hwA7G0IvY>.
+See slides from the training at <https://drive.google.com/drive/folders/13ohFt3D0EJ5PDbMaWTxnHH-hwA7G0IvY>. 
