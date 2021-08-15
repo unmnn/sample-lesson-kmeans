@@ -1,5 +1,6 @@
 Sample lesson for the teaching exam of the [RStudio instructor certification](https://education.rstudio.com/trainers/).
 
+
 This lesson on "K-Means Clustering in R" is meant to be a part of the (fictional) undergraduate course "Data Mining with R". 
 
 ## Content
